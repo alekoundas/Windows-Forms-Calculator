@@ -26,8 +26,7 @@ namespace Calculator
         {
             Button button = (Button)sender;
             Result.Text = (Result.Text == "0" || OperatorPressed == true) ? "" : Result.Text;
-            Result.Text = Result.Text + button.Text;
-            Value =Double.Parse(Result.Text);
+            Result.Text = Result.Text + button.Text;           
         }
 
         private void OperationButton(object sender, EventArgs e)
@@ -37,6 +36,7 @@ namespace Calculator
             TempLabel.Text = Result.Text;
             Result.Text = "";
             OperatorPressed = true;
+            Value = Double.Parse(TempLabel.Text);
         }
 
         private void CalculateResult(object sender, EventArgs e)
