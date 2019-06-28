@@ -25,8 +25,8 @@ namespace Calculator
         private void Number_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            Result.Text = (Result.Text == "0" || OperatorPressed == true) ? "" : Result.Text;
-            Result.Text = Result.Text + button.Text;           
+            Result.Text = (Result.Text == "0") ? "" : Result.Text;
+            Result.Text = Result.Text + button.Text;
         }
 
         private void OperationButton(object sender, EventArgs e)
@@ -77,6 +77,11 @@ namespace Calculator
             Operation = "";
             TempLabel.Text = "";
             OperatorPressed = false;
+        }
+
+        private void Result_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

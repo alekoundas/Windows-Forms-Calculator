@@ -259,14 +259,15 @@
             this.Result.Size = new System.Drawing.Size(274, 29);
             this.Result.TabIndex = 24;
             this.Result.Text = "0";
+            this.Result.TextChanged += new System.EventHandler(this.Result_TextChanged);
             // 
             // TempLabel
             // 
             this.TempLabel.AutoSize = true;
-            this.TempLabel.BackColor = System.Drawing.Color.White;
+            this.TempLabel.BackColor = System.Drawing.SystemColors.ControlLight;
             this.TempLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TempLabel.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.TempLabel.Location = new System.Drawing.Point(52, 44);
+            this.TempLabel.ForeColor = System.Drawing.SystemColors.ActiveBorder;
+            this.TempLabel.Location = new System.Drawing.Point(52, 50);
             this.TempLabel.Name = "TempLabel";
             this.TempLabel.Size = new System.Drawing.Size(0, 20);
             this.TempLabel.TabIndex = 25;
