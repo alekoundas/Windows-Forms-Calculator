@@ -12,9 +12,71 @@ namespace Calculator
 {
     public partial class Form1 : Form
     {
+        double Value = 0;
+        string Operation = "";
+        bool OperatorPressed = false;
+
         public Form1()
         {
             InitializeComponent();
+        }
+
+
+        private void Number_Click(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            Result.Text = (Result.Text == "0" || OperatorPressed == true) ? "" : Result.Text;
+            Result.Text = Result.Text + button.Text;
+            Value =Double.Parse(Result.Text);
+        }
+
+        private void OperationButton(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            Operation = button.Text;
+            TempLabel.Text = Result.Text;
+            Result.Text = "";
+            OperatorPressed = true;
+        }
+
+        private void CalculateResult(object sender, EventArgs e)
+        {
+            OperatorPressed = false;
+            TempLabel.Text = "";
+            switch (Operation)
+            {
+                case "+":
+                    Result.Text = (Value + Convert.ToDouble(Result.Text)).ToString();
+                    break;
+                case "/":
+                    Result.Text = (Value / Convert.ToDouble(Result.Text)).ToString();
+                    break;
+                case "-":
+                    Result.Text = (Value - Convert.ToDouble(Result.Text)).ToString();
+                    break;
+                case "*":
+                    Result.Text = (Value * Convert.ToDouble(Result.Text)).ToString();
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        private void ClearButton(object sender, EventArgs e)
+        {
+            Result.Clear();
+            Value = 0;
+
+        }
+
+        private void ClearEverythingButton(object sender, EventArgs e)
+        {
+            Result.Clear();
+            Value = 0;
+            Operation = "";
+            TempLabel.Text = "";
+            OperatorPressed = false;
         }
     }
 }
